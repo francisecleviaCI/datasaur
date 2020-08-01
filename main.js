@@ -26,7 +26,7 @@ makeDino('trex', 'cretaceous', true, false)
 
 const makeSingular = function(dino){
   //make a new dino with the 'us' at the end of the species removed
-let newSpecies = '';
+  let newSpecies = '';
   if(dino.species.slice(-2) === 'us'){
     newSpecies = dino.species.slice(0, -2);
   } else {
@@ -39,10 +39,41 @@ let newSpecies = '';
   return newDino;
 }
 
+const truncateSpecies = function(dino){
+let newSpecies = '';
+if(dino.species.length < 10){
+  newSpecies = dino.species;
+} else {
+  newSpecies = dino.species.substring(0, 7);
+}
+
+  const newDino = makeDino(newSpecies, dino.period, dino.carnivore, dino.extinct)
+
+  return newDino
+}
+
+const makeExtinct = function(dino) {
+let newExtinct = '';
+if(newExtinct !== undefined){
+  newExtinct = true;
+}
+
+
+  const newDino = makeDino(dino.species, dino.period, dino.carnivore, newExtinct)
+
+  return newDino
+
+}
 
 
 
+const isCarnivore = function(dino){
+  return dino.carnivore === true
+}
 
+const isHerbivore = function(dino) {
+  return dino.carnivore === false;
+}
 
 /***********************
  * ITERATION FUNCTIONS *
@@ -55,11 +86,22 @@ const singularizeDinos = function(dinos){
   
 }
 
-
-const isCarnivore = function(dino){
-  return dino.carnivore
+const truncateDinos = function(dinos){
+  return dinos.map(truncateSpecies)
 }
 
+const makeAllExtinct = function(dinos){
+  return dinos.map(makeExtinct)
+}
+
+
+const carnivoresOnly = function(dinos){
+  return dinos.filter(isCarnivore)
+}
+
+const herbivoresOnly = function (dinos) {
+  return dinos.filter(isHerbivore)
+}
 
 /*********************************
  * TEST SETUP CODE - DON'T TOUCH!*
