@@ -71,6 +71,25 @@ const isCarnivore = function(dino){
   return dino.carnivore === true
 }
 
+const isExtinct = function(dino){
+  return dino.extinct === true
+
+}
+
+const isTriassic = function(dino){
+  return dino.period === 'Triassic'
+
+}
+
+const isJurassic = function(dino){
+  return dino.period === 'Jurassic'
+}
+
+const isCretaceous = function(dino){
+  return dino.period === 'Cretaceous'
+}
+
+
 const isHerbivore = function(dino) {
   return dino.carnivore === false;
 }
