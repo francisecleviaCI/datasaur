@@ -1,6 +1,46 @@
+const dinos = require('./dinos.js')
+
+//factory function:
+
+const makeDino = function(newSpecies, newPeriod, newDiet, newExtinct){
+  if(newExtinct === undefined){
+    newExtinct = false;
+  }
+  
+  const newDino = {
+    
+    species: newSpecies,
+    period: newPeriod,
+    carnivore: newDiet,
+    extinct: newExtinct,
+  }
+  return newDino;
+}
+makeDino('trex', 'cretaceous', true, false)
+
+
+
 /********************
  * HELPER FUNCTIONS *
  ********************/
+
+const makeSingular = function(dino){
+  //make a new dino with the 'us' at the end of the species removed
+let newSpecies = '';
+  if(dino.species.slice(-2) === 'us'){
+    newSpecies = dino.species.slice(0, -2);
+  } else {
+    newSpecies = dino.species;
+  }
+  
+  const newDino = makeDino(newSpecies, dino.period, dino.carnivore, dino.extinct)
+
+  //return that
+  return newDino;
+}
+
+
+
 
 
 
@@ -8,6 +48,17 @@
  * ITERATION FUNCTIONS *
  **********************/
 
+const singularizeDinos = function(dinos){
+  return dinos.map(makeSingular)
+
+  // console.log(newDinos)
+  
+}
+
+
+const isCarnivore = function(dino){
+  return dino.carnivore
+}
 
 
 /*********************************
