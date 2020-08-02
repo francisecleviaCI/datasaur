@@ -122,6 +122,28 @@ const herbivoresOnly = function (dinos) {
   return dinos.filter(isHerbivore)
 }
 
+const extinctOnly = function (dinos) {
+  return dinos.filter(isExtinct)
+}
+
+const notExtinct = function (dinos) {
+  return dinos.filter(isExtinct)
+}
+
+const triassicOnly = function (dinos) {
+  return dinos.filter(isTriassic)
+}
+
+const notTriassic = function (dinos) {
+  return dinos.filter(isExtinct)
+}
+
+
+
+
+
+
+
 /*********************************
  * TEST SETUP CODE - DON'T TOUCH!*
  ********************************/
